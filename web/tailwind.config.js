@@ -15,7 +15,7 @@ module.exports = {
         'retro-charcoal': '#3D3D3D',
       },
       fontFamily: {
-        display: ['Georgia', 'serif'],
+        display: ['var(--font-display)', 'Georgia', 'serif'],
       },
     },
   },
