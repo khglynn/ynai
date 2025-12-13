@@ -92,6 +92,7 @@ What's next, in order. When done, move to `COMPLETED.md`.
 
 | Feature | Notes |
 |---------|-------|
+| **Card polish** | Cartoon-y depth, rounded corners, slight random rotation on slide-in (feels like real cards) |
 | Notion integration | Category notes + agent memory |
 | Stats dashboard | Accuracy tracking, problem payees |
 | Receipt linking | Attach receipt images to transactions |
