@@ -4,46 +4,47 @@ import { useState, useCallback } from 'react'
 import Image from 'next/image'
 
 // Stickers with their background colors extracted from SVGs
+// All SVGs have cream (#fffbe9) or white (#fff) backgrounds baked in
 const STICKERS: { file: string; bgColor: string }[] = [
-  // Food - red/orange backgrounds
-  { file: 'mf7_food-retro-cartoon-vol-01-surprised-pizza.svg', bgColor: '#e0330b' },
-  { file: 'mf7_food-retro-cartoon-vol-01-funny-sandwich.svg', bgColor: '#fc480d' },
-  { file: 'mf7_food-retro-cartoon-vol-01-happy-doughnut.svg', bgColor: '#e8846b' },
-  { file: 'mf16_food-retro-cartoon-vol-02-angry-sushi.svg', bgColor: '#2d7a7a' },
-  { file: 'mf16_food-retro-cartoon-vol-02-honey-pancake.svg', bgColor: '#d4a84b' },
-  { file: 'mf33_retro-cartoon-ice-cream-logo-badges-ice-cream-cone.svg', bgColor: '#e8b4b4' },
+  // Food
+  { file: 'mf7_food-retro-cartoon-vol-01-surprised-pizza.svg', bgColor: '#fffbe9' },
+  { file: 'mf7_food-retro-cartoon-vol-01-funny-sandwich.svg', bgColor: '#fffbe9' },
+  { file: 'mf7_food-retro-cartoon-vol-01-happy-doughnut.svg', bgColor: '#fffbe9' },
+  { file: 'mf16_food-retro-cartoon-vol-02-angry-sushi.svg', bgColor: '#fffbe9' },
+  { file: 'mf16_food-retro-cartoon-vol-02-honey-pancake.svg', bgColor: '#fffbe9' },
+  { file: 'mf33_retro-cartoon-ice-cream-logo-badges-ice-cream-cone.svg', bgColor: '#fffbe9' },
 
-  // Shopping - yellow/teal
-  { file: 'mf4_shopping-character-vol-01-shopping-cart.svg', bgColor: '#ffe67d' },
-  { file: 'mf4_shopping-character-vol-01-funny-box.svg', bgColor: '#fc480d' },
+  // Shopping
+  { file: 'mf4_shopping-character-vol-01-shopping-cart.svg', bgColor: '#f6efdf' },
+  { file: 'mf4_shopping-character-vol-01-funny-box.svg', bgColor: '#f6efdf' },
 
-  // Tech - blue/teal
-  { file: 'mf13_nerdy-things-cartoon-vol-3-floppy-disk.svg', bgColor: '#2d7a7a' },
-  { file: 'mf13_nerdy-things-cartoon-vol-3-retro-phone.svg', bgColor: '#e8846b' },
-  { file: 'mf11_nerdy-things-cartoon-character-vol-1-cute-game-watch.svg', bgColor: '#ffe67d' },
+  // Tech
+  { file: 'mf13_nerdy-things-cartoon-vol-3-floppy-disk.svg', bgColor: '#fffbe9' },
+  { file: 'mf13_nerdy-things-cartoon-vol-3-retro-phone.svg', bgColor: '#fffbe9' },
+  { file: 'mf11_nerdy-things-cartoon-character-vol-1-cute-game-watch.svg', bgColor: '#fffbe9' },
 
-  // Sports - various
-  { file: 'mf14_retro-cartoon-sport-logo-badges-running-club.svg', bgColor: '#d4a84b' },
-  { file: 'mf2_sports-character-cartoon-vol-01-happy-basketball.svg', bgColor: '#fc480d' },
-  { file: 'mf30_sports-character-cartoon-vol-03-punch-glove.svg', bgColor: '#e0330b' },
+  // Sports
+  { file: 'mf14_retro-cartoon-sport-logo-badges-running-club.svg', bgColor: '#fffbe9' },
+  { file: 'mf2_sports-character-cartoon-vol-01-happy-basketball.svg', bgColor: '#fffbe9' },
+  { file: 'mf30_sports-character-cartoon-vol-03-punch-glove.svg', bgColor: '#fffbe9' },
 
-  // Transport - teal/green
-  { file: 'mf3_retro-logo-badges-transport-&-travel.svg', bgColor: '#4a7c59' },
-  { file: 'mf22_retro-cartoon-eco-friendly-logo-badges-electronic-vehicle.svg', bgColor: '#2d7a7a' },
+  // Transport
+  { file: 'mf3_retro-logo-badges-transport-&-travel.svg', bgColor: '#fffbe9' },
+  { file: 'mf22_retro-cartoon-eco-friendly-logo-badges-electronic-vehicle.svg', bgColor: '#fffbe9' },
 
   // Seasonal
-  { file: 'mf24_summer-cartoon-character-vol-01-flamingo.svg', bgColor: '#e8b4b4' },
-  { file: 'mf5_winter-character-badge-gift-box.svg', bgColor: '#ffe67d' },
-  { file: 'mf25_new-year-badge-vol-3-cute-crown.svg', bgColor: '#d4a84b' },
+  { file: 'mf24_summer-cartoon-character-vol-01-flamingo.svg', bgColor: '#fffbe9' },
+  { file: 'mf5_winter-character-badge-gift-box.svg', bgColor: '#fffbe9' },
+  { file: 'mf25_new-year-badge-vol-3-cute-crown.svg', bgColor: '#fffbe9' },
 
-  // Services - various
-  { file: 'mf3_retro-logo-badges-health-care.svg', bgColor: '#2d7a7a' },
-  { file: 'mf9_vintage-logo-badges-barbershop.svg', bgColor: '#e8846b' },
-  { file: 'mf22_retro-cartoon-eco-friendly-logo-badges-earth.svg', bgColor: '#4a7c59' },
-  { file: 'mf29_vintage-logo-badges-ghost.svg', bgColor: '#3d3d3d' },
-  { file: 'mf8_vintage-logo-badges-pest-control.svg', bgColor: '#d4a84b' },
-  { file: 'mf3_retro-logo-badges-architecture.svg', bgColor: '#2d7a7a' },
-  { file: 'mf9_vintage-logo-badges-motorcycle.svg', bgColor: '#fc480d' },
+  // Services
+  { file: 'mf3_retro-logo-badges-health-care.svg', bgColor: '#fffbe9' },
+  { file: 'mf9_vintage-logo-badges-barbershop.svg', bgColor: '#fff' },
+  { file: 'mf22_retro-cartoon-eco-friendly-logo-badges-earth.svg', bgColor: '#fffbe9' },
+  { file: 'mf29_vintage-logo-badges-ghost.svg', bgColor: '#fffbe9' },
+  { file: 'mf8_vintage-logo-badges-pest-control.svg', bgColor: '#fffbe9' },
+  { file: 'mf3_retro-logo-badges-architecture.svg', bgColor: '#fffbe9' },
+  { file: 'mf9_vintage-logo-badges-motorcycle.svg', bgColor: '#fffbe9' },
 ]
 
 export default function Home() {
