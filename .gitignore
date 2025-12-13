@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+.next/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Local cache
+data/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Graphics source files (only keep converted SVGs)
+graphics/
+
+# Test files in stickers
+web/public/stickers/test/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Local tooling
+.claude/
+.playwright-mcp/

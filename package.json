@@ -1,0 +1,38 @@
+{
+  "name": "ynab-organizer",
+  "version": "1.0.0",
+  "description": "CLI tool to manage YNAB budgets - bulk categorization, budget updates, insights",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "ynab": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts"
+  },
+  "keywords": [
+    "ynab",
+    "budget",
+    "cli"
+  ],
+  "author": "Kevin",
+  "license": "ISC",
+  "dependencies": {
+    "@neondatabase/serverless": "^1.0.2",
+    "commander": "^14.0.2",
+    "dotenv": "^17.2.3",
+    "googleapis": "^168.0.0",
+    "inquirer": "^13.0.2",
+    "playwright": "^1.57.0",
+    "ynab": "^2.10.0"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^9.0.9",
+    "@types/node": "^25.0.1",
+    "svgo": "^4.0.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}
