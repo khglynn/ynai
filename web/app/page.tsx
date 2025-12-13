@@ -75,39 +75,39 @@ export default function Home() {
   const currentSticker = STICKERS[currentIndex]
 
   return (
-    <main
-      className="min-h-screen flex flex-col items-center justify-center p-4 relative overflow-hidden transition-colors duration-500"
-      style={{ backgroundColor: currentSticker.bgColor }}
-    >
+    <main className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden bg-retro-cream">
       {/* Paper texture overlay */}
-      <div className="absolute inset-0 paper-texture pointer-events-none" />
+      <div className="absolute inset-0 paper-texture pointer-events-none z-50" />
 
-      {/* Title */}
-      <h1 className="font-display text-6xl md:text-8xl lg:text-9xl text-retro-cream mb-8 drop-shadow-lg relative z-10 tracking-tight">
-        ynai
-      </h1>
+      {/* Centered container with overlapping elements */}
+      <div className="relative flex flex-col items-center justify-center">
+        {/* Title - overlaps top of sticker */}
+        <h1 className="font-display text-6xl md:text-8xl lg:text-9xl text-retro-charcoal drop-shadow-lg relative z-20 tracking-tight mb-[-2rem] md:mb-[-3rem] lg:mb-[-4rem]">
+          ynai
+        </h1>
 
-      {/* Sticker display - much larger */}
-      <div className={`${animationClass} relative z-10 mb-8`}>
-        <div className="w-[70vw] h-[70vw] max-w-[500px] max-h-[500px] md:max-w-[600px] md:max-h-[600px] relative">
-          <Image
-            src={`/stickers/selected/${currentSticker.file}`}
-            alt="Sticker"
-            fill
-            className="object-contain drop-shadow-2xl"
-            priority
-          />
+        {/* Sticker display */}
+        <div className={`${animationClass} relative z-10`}>
+          <div className="w-[70vw] h-[70vw] max-w-[500px] max-h-[500px] md:max-w-[600px] md:max-h-[600px] relative">
+            <Image
+              src={`/stickers/selected/${currentSticker.file}`}
+              alt="Sticker"
+              fill
+              className="object-contain drop-shadow-2xl"
+              priority
+            />
+          </div>
         </div>
-      </div>
 
-      {/* Button */}
-      <button
-        onClick={shuffle}
-        disabled={isAnimating}
-        className="relative z-10 bg-retro-cream text-retro-charcoal font-display text-3xl md:text-4xl lg:text-5xl px-12 py-5 rounded-full border-4 border-retro-charcoal shadow-lg hover:scale-105 active:scale-95 transition-transform duration-150 disabled:opacity-70 disabled:cursor-not-allowed"
-      >
-        another one
-      </button>
+        {/* Button - overlaps bottom of sticker */}
+        <button
+          onClick={shuffle}
+          disabled={isAnimating}
+          className="relative z-20 mt-[-2rem] md:mt-[-3rem] lg:mt-[-4rem] bg-retro-charcoal text-retro-cream font-display text-2xl md:text-3xl lg:text-4xl px-10 py-4 rounded-full border-4 border-retro-charcoal shadow-lg hover:scale-105 active:scale-95 transition-transform duration-150 disabled:opacity-70 disabled:cursor-not-allowed"
+        >
+          another one
+        </button>
+      </div>
     </main>
   )
 }
