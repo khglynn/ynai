@@ -48,34 +48,42 @@ const STICKERS: { file: string; bgColor: string }[] = [
 
 export default function Home() {
   const [currentIndex, setCurrentIndex] = useState(0)
-  const [isAnimating, setIsAnimating] = useState(false)
-  const [animationClass, setAnimationClass] = useState('animate-slide-in')
+  const [outgoingIndex, setOutgoingIndex] = useState<number | null>(null)
+  const [isEntering, setIsEntering] = useState(false)
 
   const shuffle = useCallback(() => {
-    if (isAnimating) return
+    if (outgoingIndex !== null) return // Already animating
 
-    setIsAnimating(true)
-    setAnimationClass('animate-slide-out')
+    // Pick next sticker (different from current)
+    let newIndex = currentIndex
+    while (newIndex === currentIndex) {
+      newIndex = Math.floor(Math.random() * STICKERS.length)
+    }
 
-    // After slide-out, change sticker and slide-in
+    // Old sticker becomes outgoing, new sticker becomes current
+    setOutgoingIndex(currentIndex)
+    setCurrentIndex(newIndex)
+    setIsEntering(true)
+
+    // Clear outgoing after it slides out
     setTimeout(() => {
-      let newIndex = currentIndex
-      while (newIndex === currentIndex) {
-        newIndex = Math.floor(Math.random() * STICKERS.length)
-      }
-      setCurrentIndex(newIndex)
-      setAnimationClass('animate-slide-in')
+      setOutgoingIndex(null)
+    }, 350)
 
-      setTimeout(() => {
-        setIsAnimating(false)
-      }, 400)
-    }, 400)
-  }, [currentIndex, isAnimating])
+    // Clear entering state after slide-in completes
+    setTimeout(() => {
+      setIsEntering(false)
+    }, 450)
+  }, [currentIndex, outgoingIndex])
 
   const currentSticker = STICKERS[currentIndex]
+  const outgoingSticker = outgoingIndex !== null ? STICKERS[outgoingIndex] : null
 
   return (
-    <main className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden bg-retro-cream">
+    <main
+      className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden"
+      style={{ backgroundColor: currentSticker.bgColor }}
+    >
       {/* Paper texture overlay */}
       <div className="absolute inset-0 paper-texture pointer-events-none z-50" />
 
@@ -86,23 +94,46 @@ export default function Home() {
           ynai
         </h1>
 
-        {/* Sticker display */}
-        <div className={`${animationClass} relative z-10`}>
-          <div className="w-[70vw] h-[70vw] max-w-[500px] max-h-[500px] md:max-w-[600px] md:max-h-[600px] relative">
-            <Image
-              src={`/stickers/selected/${currentSticker.file}`}
-              alt="Sticker"
-              fill
-              className="object-contain"
-              priority
-            />
+        {/* Sticker display - container for both current and outgoing */}
+        <div className="relative z-10 w-[70vw] h-[70vw] max-w-[500px] max-h-[500px] md:max-w-[600px] md:max-h-[600px]">
+          {/* Outgoing sticker - slides out left */}
+          {outgoingSticker && (
+            <div
+              className="absolute inset-0 animate-slide-out"
+              style={{ backgroundColor: outgoingSticker.bgColor }}
+            >
+              <div className="relative w-full h-full">
+                <Image
+                  src={`/stickers/selected/${outgoingSticker.file}`}
+                  alt="Sticker"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            </div>
+          )}
+
+          {/* Current sticker - slides in from right when entering */}
+          <div
+            className={`absolute inset-0 ${isEntering ? 'animate-slide-in' : ''}`}
+            style={{ backgroundColor: currentSticker.bgColor }}
+          >
+            <div className="relative w-full h-full">
+              <Image
+                src={`/stickers/selected/${currentSticker.file}`}
+                alt="Sticker"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
           </div>
         </div>
 
         {/* Button - overlaps bottom of sticker */}
         <button
           onClick={shuffle}
-          disabled={isAnimating}
+          disabled={outgoingIndex !== null}
           className="relative z-20 mt-[-2rem] md:mt-[-3rem] lg:mt-[-4rem] bg-retro-charcoal text-retro-cream font-display text-2xl md:text-3xl lg:text-4xl px-10 py-4 rounded-full border-4 border-retro-charcoal shadow-lg hover:scale-105 active:scale-95 transition-transform duration-150 disabled:opacity-70 disabled:cursor-not-allowed"
         >
           another one
