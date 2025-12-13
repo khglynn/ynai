@@ -9,7 +9,7 @@
 |----------|------|
 | **GitHub** | https://github.com/khglynn/ynai |
 | **Domain** | ynai.app (Cloudflare) |
-| **Hosting** | Vercel (TBD) |
+| **Hosting** | Vercel (ynai.app - live) |
 
 ## About This Project
 
@@ -24,10 +24,18 @@ AI-powered YNAB transaction categorization with vintage cartoon vibes:
 |------|---------|
 | `STYLE-GUIDE.md` | **Voice & tone** - Cuphead/cartoon energy, UI copy examples |
 | `ROADMAP.md` | What's next, in priority order |
+| `COMPLETED.md` | Finished work with file references |
 | `claude-plans/` | Archived implementation plans |
-| `docs/name-ideas.md` | Brainstormed project names |
-| `web/lib/paper-texture.css` | CSS for vintage paper background |
-| `web/public/stickers/converted/` | 232 SVG stickers for UI |
+
+### Web Visual Patterns (ready to reuse)
+
+| File | What's in it |
+|------|--------------|
+| `web/app/page.tsx` | STICKERS array (64 stickers w/ bgColor + textColor), `colorDistance()`, shuffle logic |
+| `web/app/globals.css` | `.paper-texture` (SVG turbulence), `.animate-card-in` (slide animation) |
+| `web/docs/color-extraction-method.md` | How to extract colors from SVGs |
+| `web/public/stickers/selected/` | 64 curated SVG stickers |
+| `web/public/stickers/converted/` | Full library (232 SVGs) |
 
 ## Kevin's Budgets
 

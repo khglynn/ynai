@@ -6,6 +6,27 @@
 
 ## December 2024
 
+### Sticker Demo + Visual Foundation (ynai.app)
+**Completed:** Dec 13, 2024
+
+Visual patterns for the YNAB web UI - sticker shuffle demo deployed to ynai.app.
+
+**Built:**
+- 64 SVG stickers with extracted `bgColor` + `textColor`
+- Color distance algorithm (prevents similar colors back-to-back)
+- Paper texture overlay (SVG turbulence filter, multiply blend)
+- Full-screen card slide animation
+- Dynamic text/button coloring
+
+**Files (reusable for YNAB app):**
+- `web/app/page.tsx` - STICKERS array, `colorDistance()`, `hexToRgb()`, shuffle logic
+- `web/app/globals.css` - `.paper-texture` class, `.animate-card-in` animation
+- `web/docs/color-extraction-method.md` - SVG color extraction guide
+
+**Reference:** `claude-plans/2025-12-13-sticker-demo-colors.md`
+
+---
+
 ### Apple Receipt Sync
 **Completed:** Dec 12, 2024
 
