@@ -21,8 +21,9 @@ Thumbs.db
 .vscode/
 .idea/
 
-# Graphics source files (only keep converted SVGs)
+# Graphics source files (paid assets - keep private)
 graphics/
+assets/stickers-all/
 
 # Test files in stickers
 web/public/stickers/test/

@@ -1,0 +1,218 @@
+{
+  "version": "1.0.0",
+  "description": "Sticker mappings for YNAB transaction categories",
+  "updated": "2025-12-12",
+  "stickers": {
+    "mf7_food-retro-cartoon-vol-01-surprised-pizza.svg": {
+      "categories": ["Meals", "Eating Out"],
+      "tags": ["food", "pizza", "dinner"]
+    },
+    "mf7_food-retro-cartoon-vol-01-funny-sandwich.svg": {
+      "categories": ["Meals", "Eating Out"],
+      "tags": ["food", "sandwich", "lunch"]
+    },
+    "mf7_food-retro-cartoon-vol-01-lazy-noodle.svg": {
+      "categories": ["Meals", "Eating Out"],
+      "tags": ["food", "noodles", "asian"]
+    },
+    "mf7_food-retro-cartoon-vol-01-old-hotdog.svg": {
+      "categories": ["Meals", "Eating Out", "Coffee / Snacks"],
+      "tags": ["food", "hotdog", "snack"]
+    },
+    "mf16_food-retro-cartoon-vol-02-angry-sushi.svg": {
+      "categories": ["Meals", "Eating Out"],
+      "tags": ["food", "sushi", "japanese"]
+    },
+    "mf16_food-retro-cartoon-vol-02-triangle-sandwich.svg": {
+      "categories": ["Meals", "Eating Out"],
+      "tags": ["food", "sandwich", "lunch"]
+    },
+    "mf16_food-retro-cartoon-vol-02-lazy-meat.svg": {
+      "categories": ["Meals", "Groceries"],
+      "tags": ["food", "meat", "steak"]
+    },
+    "mf31_fast-food-vol-02-happy-kebab.svg": {
+      "categories": ["Meals", "Eating Out"],
+      "tags": ["food", "kebab", "fastfood"]
+    },
+    "mf7_food-retro-cartoon-vol-01-happy-doughnut.svg": {
+      "categories": ["Coffee / Snacks", "Treats"],
+      "tags": ["snack", "donut", "sweet"]
+    },
+    "mf16_food-retro-cartoon-vol-02-honey-pancake.svg": {
+      "categories": ["Coffee / Snacks", "Meals"],
+      "tags": ["breakfast", "pancake", "sweet"]
+    },
+    "mf16_food-retro-cartoon-vol-02-lazy-waffle.svg": {
+      "categories": ["Coffee / Snacks", "Meals"],
+      "tags": ["breakfast", "waffle", "sweet"]
+    },
+    "mf33_retro-cartoon-ice-cream-logo-badges-ice-cream-cone.svg": {
+      "categories": ["Coffee / Snacks", "Treats"],
+      "tags": ["snack", "icecream", "dessert"]
+    },
+    "mf33_retro-cartoon-ice-cream-logo-badges-popsicle.svg": {
+      "categories": ["Coffee / Snacks", "Treats"],
+      "tags": ["snack", "popsicle", "dessert"]
+    },
+    "mf3_retro-logo-badges-coffee-shop.svg": {
+      "categories": ["Coffee / Snacks", "Coffee"],
+      "tags": ["coffee", "cafe", "drink"]
+    },
+    "mf4_shopping-character-vol-01-shopping-cart.svg": {
+      "categories": ["Groceries", "Shopping"],
+      "tags": ["shopping", "cart", "groceries"]
+    },
+    "mf4_shopping-character-vol-01-shopping-bag.svg": {
+      "categories": ["Clothing", "Shopping"],
+      "tags": ["shopping", "bag", "retail"]
+    },
+    "mf4_shopping-character-vol-01-funny-box.svg": {
+      "categories": ["House :') / Electronics", "Amazon"],
+      "tags": ["package", "box", "delivery"]
+    },
+    "mf4_shopping-character-vol-01-package-box.svg": {
+      "categories": ["House :') / Electronics", "Shipping"],
+      "tags": ["package", "box", "delivery"]
+    },
+    "mf13_nerdy-things-cartoon-vol-3-floppy-disk.svg": {
+      "categories": ["Software Subscriptions", "Tech"],
+      "tags": ["tech", "computer", "software"]
+    },
+    "mf13_nerdy-things-cartoon-vol-3-retro-phone.svg": {
+      "categories": ["House :') / Electronics", "Phone"],
+      "tags": ["phone", "mobile", "electronics"]
+    },
+    "mf13_nerdy-things-cartoon-vol-3-colorfull-mouse.svg": {
+      "categories": ["House :') / Electronics", "Computer"],
+      "tags": ["computer", "mouse", "tech"]
+    },
+    "mf4_shopping-character-vol-01-angry-handphone.svg": {
+      "categories": ["House :') / Electronics", "Phone"],
+      "tags": ["phone", "mobile", "electronics"]
+    },
+    "mf13_nerdy-things-cartoon-vol-3-tape-cassette.svg": {
+      "categories": ["Tickets / Travel / Fun", "Music"],
+      "tags": ["music", "entertainment", "vintage"]
+    },
+    "mf13_nerdy-things-cartoon-vol-3-music-plate.svg": {
+      "categories": ["Tickets / Travel / Fun", "Music"],
+      "tags": ["music", "vinyl", "entertainment"]
+    },
+    "mf11_nerdy-things-cartoon-character-vol-1-cute-game-watch.svg": {
+      "categories": ["Tickets / Travel / Fun", "Games"],
+      "tags": ["gaming", "games", "entertainment"]
+    },
+    "mf11_nerdy-things-cartoon-character-vol-1-uno-cards.svg": {
+      "categories": ["Tickets / Travel / Fun", "Games"],
+      "tags": ["games", "cards", "entertainment"]
+    },
+    "mf15_retro-cartoon-music-world-logo-badges.svg": {
+      "categories": ["Tickets / Travel / Fun", "Entertainment"],
+      "tags": ["music", "entertainment", "concert"]
+    },
+    "mf13_nerdy-things-cartoon-vol-3-roll-film.svg": {
+      "categories": ["Tickets / Travel / Fun", "Movies"],
+      "tags": ["movies", "film", "entertainment"]
+    },
+    "mf14_retro-cartoon-sport-logo-badges-running-club.svg": {
+      "categories": ["Gym / Fitness", "Running"],
+      "tags": ["fitness", "running", "exercise"]
+    },
+    "mf14_retro-cartoon-sport-logo-badges-basketball.svg": {
+      "categories": ["Gym / Fitness", "Sports"],
+      "tags": ["sports", "basketball", "exercise"]
+    },
+    "mf2_sports-character-cartoon-vol-01-happy-basketball.svg": {
+      "categories": ["Gym / Fitness", "Sports"],
+      "tags": ["sports", "basketball", "exercise"]
+    },
+    "mf30_sports-character-cartoon-vol-03-punch-glove.svg": {
+      "categories": ["Gym / Fitness", "Boxing"],
+      "tags": ["fitness", "boxing", "exercise"]
+    },
+    "mf22_retro-cartoon-eco-friendly-logo-badges-cycling.svg": {
+      "categories": ["Gym / Fitness", "Cycling"],
+      "tags": ["cycling", "bike", "fitness"]
+    },
+    "mf30_sports-character-cartoon-vol-03-swim-glass.svg": {
+      "categories": ["Gym / Fitness", "Swimming"],
+      "tags": ["swimming", "pool", "fitness"]
+    },
+    "mf3_retro-logo-badges-transport-&-travel.svg": {
+      "categories": ["Tickets / Travel / Fun", "Travel"],
+      "tags": ["travel", "plane", "vacation"]
+    },
+    "mf22_retro-cartoon-eco-friendly-logo-badges-electronic-vehicle.svg": {
+      "categories": ["Transportation", "Electric"],
+      "tags": ["car", "electric", "transport"]
+    },
+    "mf24_summer-cartoon-character-vol-01-flamingo.svg": {
+      "categories": ["Tickets / Travel / Fun", "Vacation"],
+      "tags": ["vacation", "tropical", "summer"]
+    },
+    "mf34_authentic-india-badge-vol-3-traditional-travel.svg": {
+      "categories": ["Tickets / Travel / Fun", "Travel"],
+      "tags": ["travel", "adventure", "vacation"]
+    },
+    "mf5_winter-character-badge-gift-box.svg": {
+      "categories": ["Gifts", "Presents"],
+      "tags": ["gift", "present", "celebration"]
+    },
+    "mf25_new-year-badge-vol-3-pinky-bow.svg": {
+      "categories": ["Gifts", "Celebration"],
+      "tags": ["gift", "bow", "celebration"]
+    },
+    "mf25_new-year-badge-vol-3-cute-crown.svg": {
+      "categories": ["Treat yo self (and Ross)", "Celebration"],
+      "tags": ["celebration", "crown", "treat"]
+    },
+    "mf3_retro-logo-badges-health-care.svg": {
+      "categories": ["Therapy", "Med Bill", "OTC Pharmacy"],
+      "tags": ["medical", "health", "doctor"]
+    },
+    "mf24_summer-cartoon-character-vol-01-sunglasses.svg": {
+      "categories": ["Grooming / haircuts", "Style"],
+      "tags": ["style", "fashion", "cool"]
+    },
+    "mf32_spring-cartoon-character-happy-sweater.svg": {
+      "categories": ["Clothing", "Fashion"],
+      "tags": ["clothing", "fashion", "sweater"]
+    },
+    "mf9_vintage-logo-badges-barbershop.svg": {
+      "categories": ["Grooming / haircuts", "Haircut"],
+      "tags": ["haircut", "barber", "grooming"]
+    },
+    "mf20_autumn-character-badge-smiley-pumpkin.svg": {
+      "categories": ["Groceries", "Seasonal"],
+      "tags": ["groceries", "autumn", "seasonal"]
+    },
+    "mf24_summer-cartoon-character-vol-01-smile-watermelon.svg": {
+      "categories": ["Groceries", "Fruit"],
+      "tags": ["groceries", "fruit", "summer"]
+    },
+    "mf32_spring-cartoon-character-picnic-basket.svg": {
+      "categories": ["Meals", "Outdoor"],
+      "tags": ["picnic", "outdoor", "food"]
+    },
+    "mf22_retro-cartoon-eco-friendly-logo-badges-earth.svg": {
+      "categories": ["Donation", "Environment"],
+      "tags": ["earth", "environment", "donation"]
+    },
+    "mf32_spring-cartoon-character-curious-tomato.svg": {
+      "categories": ["Groceries", "Produce"],
+      "tags": ["groceries", "vegetables", "produce"]
+    }
+  },
+  "categoryGroups": {
+    "Eats": ["Meals", "Coffee / Snacks"],
+    "Buying stuff": ["House :') / Electronics", "Clothing"],
+    "Doing stuff": ["Tickets / Travel / Fun", "Treat yo self (and Ross)"],
+    "Here ya go": ["Gifts"],
+    "Rundles": ["Software Subscriptions"],
+    "Good Lookin'": ["Gym / Fitness", "Grooming / haircuts"],
+    "Medical / financial complex": ["Therapy", "Med Bill", "OTC Pharmacy"],
+    "For the future": ["Donation"]
+  },
+  "fallback": "mf22_retro-cartoon-eco-friendly-logo-badges-earth.svg"
+}

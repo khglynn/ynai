@@ -3,7 +3,7 @@
 # Created: 2025-12-12
 
 INPUT_DIR="/Users/KevinHG/DevKev/personal/ynab-organizer/graphics"
-OUTPUT_DIR="/Users/KevinHG/DevKev/personal/ynab-organizer/web/public/stickers/converted"
+OUTPUT_DIR="/Users/KevinHG/DevKev/personal/ynab-organizer/assets/stickers-all/converted"
 PROJECT_DIR="/Users/KevinHG/DevKev/personal/ynab-organizer"
 
 # Colors for output
