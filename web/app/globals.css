@@ -7,27 +7,19 @@ body {
 }
 
 .paper-texture {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  opacity: 0.06;
+  /* Paper grain - larger grain with subtle horizontal fiber direction */
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paper'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.5 0.65' numOctaves='4' seed='3' stitchTiles='stitch' result='noise'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paper)'/%3E%3C/svg%3E");
+  background-size: 300px 300px;
+  opacity: 0.4;
   mix-blend-mode: multiply;
 }
 
-@keyframes slide-out-left {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-120%); }
-}
-
-@keyframes slide-in-right {
-  0% { transform: translateX(120%); }
-  70% { transform: translateX(-4%); }
-  85% { transform: translateX(2%); }
+/* Full-screen card slide in from right */
+@keyframes card-in {
+  0% { transform: translateX(100%); }
   100% { transform: translateX(0); }
 }
 
-.animate-slide-out {
-  animation: slide-out-left 0.35s cubic-bezier(0.4, 0, 0.8, 0.4) forwards;
-}
-
-.animate-slide-in {
-  animation: slide-in-right 0.45s cubic-bezier(0.2, 0.6, 0.3, 1);
+.animate-card-in {
+  animation: card-in 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
