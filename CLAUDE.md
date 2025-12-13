@@ -18,6 +18,17 @@ AI-powered YNAB transaction categorization with vintage cartoon vibes:
 - **Updating budgets** - assign money to categories
 - **Insights & trends** - periodic analysis (later)
 
+## Key Project Files
+
+| File | Purpose |
+|------|---------|
+| `STYLE-GUIDE.md` | **Voice & tone** - Cuphead/cartoon energy, UI copy examples |
+| `ROADMAP.md` | What's next, in priority order |
+| `claude-plans/` | Archived implementation plans |
+| `docs/name-ideas.md` | Brainstormed project names |
+| `web/lib/paper-texture.css` | CSS for vintage paper background |
+| `web/public/stickers/converted/` | 232 SVG stickers for UI |
+
 ## Kevin's Budgets
 
 Only work with these 4 budgets (ignore family shares like "Molly's Plan" or "Smith Home Budget"):
@@ -31,10 +42,18 @@ Only work with these 4 budgets (ignore family shares like "Molly's Plan" or "Smi
 
 ## Tech Stack
 
+**Current (CLI):**
 - **Runtime**: Node.js + TypeScript (ES modules)
 - **YNAB SDK**: `ynab` (official)
 - **CLI**: `commander` + `inquirer` for interactive prompts
 - **Dev**: `tsx` for running TS directly
+
+**Web UI (in progress):**
+- **Framework**: Next.js 14 (App Router)
+- **Styling**: Tailwind CSS + custom paper texture
+- **LLM**: OpenRouter → Haiku (model flexibility)
+- **Hosting**: Vercel
+- **Database**: Neon (existing - patterns, receipts)
 
 ## YNAB API Gotchas
 
