@@ -1,6 +1,6 @@
 {
-  "version": "1.0.0",
-  "description": "Sticker mappings for YNAB transaction categories",
+  "version": "1.1.0",
+  "description": "Sticker mappings for YNAB transaction categories across all budgets",
   "updated": "2025-12-12",
   "credits": {
     "artist": "Danny Aldana",
@@ -34,7 +34,7 @@
       "tags": ["food", "sandwich", "lunch"]
     },
     "mf16_food-retro-cartoon-vol-02-lazy-meat.svg": {
-      "categories": ["Meals", "Groceries"],
+      "categories": ["Meals", "Groceries", "Groceries / supplies / snacks"],
       "tags": ["food", "meat", "steak"]
     },
     "mf31_fast-food-vol-02-happy-kebab.svg": {
@@ -42,31 +42,35 @@
       "tags": ["food", "kebab", "fastfood"]
     },
     "mf7_food-retro-cartoon-vol-01-happy-doughnut.svg": {
-      "categories": ["Coffee / Snacks", "Treats"],
+      "categories": ["Coffee / Snacks", "Eats/treats"],
       "tags": ["snack", "donut", "sweet"]
     },
     "mf16_food-retro-cartoon-vol-02-honey-pancake.svg": {
-      "categories": ["Coffee / Snacks", "Meals"],
+      "categories": ["Coffee / Snacks", "Meals", "Eats/treats"],
       "tags": ["breakfast", "pancake", "sweet"]
     },
     "mf16_food-retro-cartoon-vol-02-lazy-waffle.svg": {
-      "categories": ["Coffee / Snacks", "Meals"],
+      "categories": ["Coffee / Snacks", "Meals", "Eats/treats"],
       "tags": ["breakfast", "waffle", "sweet"]
     },
     "mf33_retro-cartoon-ice-cream-logo-badges-ice-cream-cone.svg": {
-      "categories": ["Coffee / Snacks", "Treats"],
+      "categories": ["Coffee / Snacks", "Eats/treats"],
       "tags": ["snack", "icecream", "dessert"]
     },
     "mf33_retro-cartoon-ice-cream-logo-badges-popsicle.svg": {
-      "categories": ["Coffee / Snacks", "Treats"],
+      "categories": ["Coffee / Snacks", "Eats/treats"],
       "tags": ["snack", "popsicle", "dessert"]
     },
     "mf3_retro-logo-badges-coffee-shop.svg": {
-      "categories": ["Coffee / Snacks", "Coffee"],
+      "categories": ["Coffee / Snacks"],
       "tags": ["coffee", "cafe", "drink"]
     },
+    "mf19_vintage-logo-badges-food-truck.svg": {
+      "categories": ["Meals", "Eats/treats", "Eating Out"],
+      "tags": ["food", "truck", "street food"]
+    },
     "mf4_shopping-character-vol-01-shopping-cart.svg": {
-      "categories": ["Groceries", "Shopping"],
+      "categories": ["Groceries", "Groceries / supplies / snacks", "Shopping"],
       "tags": ["shopping", "cart", "groceries"]
     },
     "mf4_shopping-character-vol-01-shopping-bag.svg": {
@@ -78,15 +82,15 @@
       "tags": ["package", "box", "delivery"]
     },
     "mf4_shopping-character-vol-01-package-box.svg": {
-      "categories": ["House :') / Electronics", "Shipping"],
+      "categories": ["House :') / Electronics", "Shipping", "Planning to return or get refunded"],
       "tags": ["package", "box", "delivery"]
     },
     "mf13_nerdy-things-cartoon-vol-3-floppy-disk.svg": {
-      "categories": ["Software Subscriptions", "Tech"],
+      "categories": ["Software Subscriptions", "Shared Subscriptions"],
       "tags": ["tech", "computer", "software"]
     },
     "mf13_nerdy-things-cartoon-vol-3-retro-phone.svg": {
-      "categories": ["House :') / Electronics", "Phone"],
+      "categories": ["House :') / Electronics", "Internet"],
       "tags": ["phone", "mobile", "electronics"]
     },
     "mf13_nerdy-things-cartoon-vol-3-colorfull-mouse.svg": {
@@ -138,7 +142,7 @@
       "tags": ["fitness", "boxing", "exercise"]
     },
     "mf22_retro-cartoon-eco-friendly-logo-badges-cycling.svg": {
-      "categories": ["Gym / Fitness", "Cycling"],
+      "categories": ["Gym / Fitness", "Cycling", "Tolls / charging / secondary transport"],
       "tags": ["cycling", "bike", "fitness"]
     },
     "mf30_sports-character-cartoon-vol-03-swim-glass.svg": {
@@ -150,11 +154,11 @@
       "tags": ["travel", "plane", "vacation"]
     },
     "mf22_retro-cartoon-eco-friendly-logo-badges-electronic-vehicle.svg": {
-      "categories": ["Transportation", "Electric"],
+      "categories": ["Transportation", "Car payment", "Tolls / charging / secondary transport"],
       "tags": ["car", "electric", "transport"]
     },
     "mf24_summer-cartoon-character-vol-01-flamingo.svg": {
-      "categories": ["Tickets / Travel / Fun", "Vacation"],
+      "categories": ["Tickets / Travel / Fun", "Travel", "Airbnb revenue"],
       "tags": ["vacation", "tropical", "summer"]
     },
     "mf34_authentic-india-badge-vol-3-traditional-travel.svg": {
@@ -174,7 +178,7 @@
       "tags": ["celebration", "crown", "treat"]
     },
     "mf3_retro-logo-badges-health-care.svg": {
-      "categories": ["Therapy", "Med Bill", "OTC Pharmacy"],
+      "categories": ["Therapy", "Med Bill", "OTC Pharmacy", "Healthcare", "Allergy drops (pay dad)"],
       "tags": ["medical", "health", "doctor"]
     },
     "mf24_summer-cartoon-character-vol-01-sunglasses.svg": {
@@ -190,15 +194,15 @@
       "tags": ["haircut", "barber", "grooming"]
     },
     "mf20_autumn-character-badge-smiley-pumpkin.svg": {
-      "categories": ["Groceries", "Seasonal"],
+      "categories": ["Groceries", "Groceries / supplies / snacks", "Seasonal"],
       "tags": ["groceries", "autumn", "seasonal"]
     },
     "mf24_summer-cartoon-character-vol-01-smile-watermelon.svg": {
-      "categories": ["Groceries", "Fruit"],
+      "categories": ["Groceries", "Groceries / supplies / snacks", "Fruit"],
       "tags": ["groceries", "fruit", "summer"]
     },
     "mf32_spring-cartoon-character-picnic-basket.svg": {
-      "categories": ["Meals", "Outdoor"],
+      "categories": ["Meals", "Outdoor", "Groceries / supplies / snacks"],
       "tags": ["picnic", "outdoor", "food"]
     },
     "mf22_retro-cartoon-eco-friendly-logo-badges-earth.svg": {
@@ -206,19 +210,84 @@
       "tags": ["earth", "environment", "donation"]
     },
     "mf32_spring-cartoon-character-curious-tomato.svg": {
-      "categories": ["Groceries", "Produce"],
+      "categories": ["Groceries", "Groceries / supplies / snacks", "Produce"],
       "tags": ["groceries", "vegetables", "produce"]
+    },
+    "mf17_retro-logo-badges-organic-food.svg": {
+      "categories": ["Groceries", "Groceries / supplies / snacks"],
+      "tags": ["groceries", "organic", "produce"]
+    },
+    "mf8_vintage-logo-badges-pest-control.svg": {
+      "categories": ["Pests"],
+      "tags": ["pest", "bugs", "exterminator"]
+    },
+    "mf8_vintage-logo-badges-financial-planner.svg": {
+      "categories": ["4 Taxes", "Taxes/Legal/Finance Fees", "Bank Fees", "Tickets & Government"],
+      "tags": ["finance", "taxes", "money"]
+    },
+    "mf3_retro-logo-badges-architecture.svg": {
+      "categories": ["6th Mortgage", "HOA", "House stuff I'm covering", "Flood Insurance", "State Farm (Insurance?)"],
+      "tags": ["house", "home", "mortgage"]
+    },
+    "mf22_retro-cartoon-eco-friendly-logo-badges-solar-panel.svg": {
+      "categories": ["Water/Waste/Electricity", "Gas", "Utilities"],
+      "tags": ["utilities", "solar", "energy"]
+    },
+    "mf22_retro-cartoon-eco-friendly-logo-badges-tumbler.svg": {
+      "categories": ["Internet", "Shared Subscriptions"],
+      "tags": ["drinks", "utilities", "eco"]
+    },
+    "mf9_vintage-logo-badges-motorcycle.svg": {
+      "categories": ["Car payment", "Car insurance + bluelink", "Tolls / charging / secondary transport"],
+      "tags": ["vehicle", "car", "transport"]
+    },
+    "mf29_vintage-logo-badges-ghost.svg": {
+      "categories": ["Vice"],
+      "tags": ["spooky", "fun", "guilty"]
+    },
+    "mf29_vintage-logo-badges-skeleton.svg": {
+      "categories": ["Lost / Broken / Goof", "Other"],
+      "tags": ["broken", "dead", "oops"]
+    },
+    "mf5_winter-character-badge-polkadot-mug.svg": {
+      "categories": ["Daycare+", "Eats/treats"],
+      "tags": ["cozy", "kids", "warm"]
+    },
+    "mf8_vintage-logo-badges-laundry.svg": {
+      "categories": ["Storage unit", "House stuff I'm covering"],
+      "tags": ["laundry", "storage", "household"]
+    },
+    "mf22_retro-cartoon-eco-friendly-logo-badges-reusable-bag.svg": {
+      "categories": ["Groceries / supplies / snacks", "Shopping"],
+      "tags": ["eco", "bag", "shopping"]
+    },
+    "mf14_retro-cartoon-sport-logo-badges-racing-team.svg": {
+      "categories": ["Emergency", "Careful asshole"],
+      "tags": ["fast", "urgent", "racing"]
     }
   },
   "categoryGroups": {
-    "Eats": ["Meals", "Coffee / Snacks"],
-    "Buying stuff": ["House :') / Electronics", "Clothing"],
-    "Doing stuff": ["Tickets / Travel / Fun", "Treat yo self (and Ross)"],
-    "Here ya go": ["Gifts"],
-    "Rundles": ["Software Subscriptions"],
-    "Good Lookin'": ["Gym / Fitness", "Grooming / haircuts"],
-    "Medical / financial complex": ["Therapy", "Med Bill", "OTC Pharmacy"],
-    "For the future": ["Donation"]
+    "Personal": {
+      "Eats": ["Meals", "Coffee / Snacks"],
+      "Medical / financial complex": ["Therapy", "Med Bill", "OTC Pharmacy", "Allergy drops (pay dad)", "Tickets & Government", "Bank Fees"],
+      "Good Lookin'": ["Gym / Fitness", "Grooming / haircuts"],
+      "Rundles": ["Software Subscriptions", "Vice"],
+      "Buying stuff": ["House :') / Electronics", "Clothing", "Lost / Broken / Goof"],
+      "Doing stuff": ["Tickets / Travel / Fun", "Treat yo self (and Ross)"],
+      "Here ya go": ["Gifts", "House stuff I'm covering"],
+      "For the future": ["Emergency", "Betterment", "Stonks/Crypto", "Fundrise", "Forumla or other bet", "Donation"]
+    },
+    "Joint": {
+      "Food": ["Groceries / supplies / snacks", "Meals"],
+      "Ms Terra Bread": ["Daycare+", "Healthcare", "Eats/treats"],
+      "House": ["6th Mortgage", "Storage unit", "Flood Insurance", "HOA"],
+      "Utilities": ["Internet", "Water/Waste/Electricity", "Gas"],
+      "Subscriptions/services": ["Shared Subscriptions"],
+      "Transport": ["Car payment", "Car insurance + bluelink", "Tolls / charging / secondary transport", "Travel"]
+    },
+    "HOA": {
+      "Outflow": ["State Farm (Insurance?)", "Pests", "Bank Fees", "Other"]
+    }
   },
   "fallback": "mf22_retro-cartoon-eco-friendly-logo-badges-earth.svg"
 }
