@@ -27,19 +27,22 @@ body {
 }
 
 @keyframes slide-out-left {
-  0% { transform: translateX(0); opacity: 1; }
-  100% { transform: translateX(-120%); opacity: 0; }
+  0% { transform: translateX(0) scale(1); opacity: 1; }
+  40% { transform: translateX(-30%) scale(0.95); opacity: 0.8; }
+  100% { transform: translateX(-120%) scale(0.9); opacity: 0; }
 }
 
 @keyframes slide-in-right {
-  0% { transform: translateX(120%); opacity: 0; }
-  100% { transform: translateX(0); opacity: 1; }
+  0% { transform: translateX(120%) scale(0.9); opacity: 0; }
+  60% { transform: translateX(10%) scale(1.02); opacity: 1; }
+  80% { transform: translateX(-3%) scale(1); }
+  100% { transform: translateX(0) scale(1); opacity: 1; }
 }
 
 .animate-slide-out {
-  animation: slide-out-left 0.4s ease-in forwards;
+  animation: slide-out-left 0.3s cubic-bezier(0.4, 0, 0.9, 0.4) forwards;
 }
 
 .animate-slide-in {
-  animation: slide-in-right 0.4s ease-out;
+  animation: slide-in-right 0.4s cubic-bezier(0.2, 0.8, 0.3, 1.1);
 }

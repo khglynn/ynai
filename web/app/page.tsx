@@ -93,7 +93,7 @@ export default function Home() {
               src={`/stickers/selected/${currentSticker.file}`}
               alt="Sticker"
               fill
-              className="object-contain drop-shadow-2xl"
+              className="object-contain"
               priority
             />
           </div>
