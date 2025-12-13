@@ -2,6 +2,12 @@
   "version": "1.0.0",
   "description": "Sticker mappings for YNAB transaction categories",
   "updated": "2025-12-12",
+  "credits": {
+    "artist": "Danny Aldana",
+    "portfolio": "https://graphicriver.net/user/dannyaldana/portfolio",
+    "instagram": "https://www.instagram.com/dannyaldana/",
+    "license": "Envato Elements commercial license"
+  },
   "stickers": {
     "mf7_food-retro-cartoon-vol-01-surprised-pizza.svg": {
       "categories": ["Meals", "Eating Out"],
