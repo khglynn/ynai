@@ -128,8 +128,8 @@ export const SwipeCard = forwardRef<SwipeCardRef, SwipeCardProps>(
         }}
         className={`
           absolute
-          w-[320px] h-[520px]
-          md:w-[400px] md:h-[640px]
+          w-[320px] h-[min(520px,75vh)]
+          md:w-[400px] md:h-[min(640px,80vh)]
           rounded-3xl
           card-edge
           overflow-hidden

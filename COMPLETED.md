@@ -6,6 +6,68 @@
 
 ## December 2024
 
+### Sticker Float-to-Top Layout
+**Completed:** Dec 27, 2024
+
+Improved card layout for shorter viewports - sticker floats to top, text at bottom with gradient.
+
+**Built:**
+- Sticker container uses `bottom-[45%]` to occupy top 55% of card
+- Added `object-top` to anchor sticker image at top
+- Gradient behind text: `transparent → 80% opacity → solid` for readability
+- Removed spacer div (no longer needed with separated zones)
+
+**File:**
+- `web/app/components/TransactionContent.tsx` - lines 32-43 (sticker), 46-51 (gradient)
+
+---
+
+### Responsive Card Sizing
+**Completed:** Dec 27, 2024
+
+Added vh-based card sizing for short viewport compatibility.
+
+**Built:**
+- SwipeCard now uses `min()` for responsive height:
+  - Mobile: `h-[min(520px,75vh)]` - caps at 75% viewport height
+  - Desktop: `h-[min(640px,80vh)]` - caps at 80% viewport height
+- Cards no longer clip on short viewports (tested at 390×550)
+- Desktop buttons still appear at md breakpoint
+
+**File:**
+- `web/app/components/SwipeCard.tsx` - lines 131-132
+
+---
+
+### Smart Stickers + Confidence UI
+**Completed:** Dec 26, 2024
+
+Enhanced swipe card UX with semantic sticker matching and confidence display.
+
+**Built:**
+- Smart sticker pairing: Matches sticker graphics to transaction payee/category
+  - `STICKER_GROUPS`: Groups stickers by theme (food, shopping, tech, health, etc.)
+  - `PAYEE_KEYWORDS`: Maps payees to sticker groups (Amazon→shopping, CVS→health)
+  - `CATEGORY_KEYWORDS`: Maps categories to sticker groups
+  - `getSmartSticker()`: Picks semantically relevant sticker with color distance check
+- Confidence % in CategoryPicker: Only shown on first 4-5 suggestions in collapsed view
+  - Disappears when expanded or searching (keeps list clean)
+- Confidence % in BulkApprovalList: Hover-only reveal (category stays prominent)
+
+**UX Refinements (Dec 26):**
+- BulkApprovalList: Returned to chunky standalone header/footer blocks (removed unified container)
+- CategoryPicker: Confidence % constrained to initial collapsed suggestions only
+- BulkApprovalList: Added button-like styling to header/footer (rounded-2xl, shadow-lg, font-display uppercase)
+- StampOverlay: Changed "Stamped!" → "Approved" (renders as "APPROVED" via CSS uppercase)
+
+**Files:**
+- `web/app/lib/stickers.ts` - Smart matching: `STICKER_GROUPS`, `PAYEE_KEYWORDS`, `getSmartSticker()`
+- `web/app/components/CardStack.tsx` - Uses `getSmartSticker()` for semantic assignment
+- `web/app/components/CategoryPicker.tsx` - Shows confidence % on first 4-5 collapsed only
+- `web/app/components/BulkApprovalList.tsx` - Hover-only confidence, chunky standalone blocks
+
+---
+
 ### Sticker Demo + Visual Foundation (ynai.app)
 **Completed:** Dec 13, 2024
 

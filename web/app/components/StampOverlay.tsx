@@ -34,7 +34,7 @@ export function StampOverlay({ type, opacity }: StampOverlayProps) {
       }}
     >
       <span className="stamp-texture relative">
-        {isApproved ? 'Stamped!' : 'Later'}
+        {isApproved ? 'Approved' : 'Later'}
       </span>
     </motion.div>
   )

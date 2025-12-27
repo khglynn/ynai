@@ -2,36 +2,26 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { AnimatePresence } from 'framer-motion'
-import { STICKERS, colorDistance } from '../lib/stickers'
+import { STICKERS, getSmartSticker } from '../lib/stickers'
 import { TransactionCard, SwipeDirection, SwipeResult, Transaction } from '../types/transaction'
 import { SwipeCard, SwipeCardRef } from './SwipeCard'
 import { SwipeButtons } from './SwipeButtons'
 
-// Assign stickers to transactions, avoiding similar consecutive colors
+// Assign stickers to transactions using smart semantic matching
 function assignStickersToTransactions(transactions: Transaction[]): TransactionCard[] {
   const cards: TransactionCard[] = []
   let lastStickerIndex = -1
 
   for (const tx of transactions) {
-    let stickerIndex = Math.floor(Math.random() * STICKERS.length)
-    let attempts = 0
+    // Use smart matching based on payee and category
+    const sticker = getSmartSticker(tx.payee, tx.suggestedCategory, lastStickerIndex)
 
-    // Try to find a sticker with sufficient color distance from the last one
-    while (attempts < 20 && lastStickerIndex >= 0) {
-      const lastColor = STICKERS[lastStickerIndex].textColor
-      const newColor = STICKERS[stickerIndex].textColor
-
-      if (colorDistance(lastColor, newColor) > 80) {
-        break
-      }
-
-      stickerIndex = Math.floor(Math.random() * STICKERS.length)
-      attempts++
-    }
+    // Find the index of this sticker for color distance tracking
+    const stickerIndex = STICKERS.findIndex(s => s.file === sticker.file)
 
     cards.push({
       ...tx,
-      sticker: STICKERS[stickerIndex],
+      sticker,
     })
 
     lastStickerIndex = stickerIndex

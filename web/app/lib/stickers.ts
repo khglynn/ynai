@@ -139,6 +139,238 @@ export function colorDistance(hex1: string, hex2: string): number {
   )
 }
 
+// Sticker index ranges by category
+const STICKER_GROUPS = {
+  food: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], // Food characters + ice cream + food badges
+  shopping: [15, 16, 17, 18, 19], // Shopping characters
+  tech: [20, 21, 22, 23, 24, 25, 26, 27], // Tech characters
+  sports: [28, 29, 30, 31, 32, 33], // Sports characters + badges
+  music: [34, 23, 24, 25], // Music badge + music plate, film, cassette
+  transport: [35, 36, 37, 38, 39, 40, 41, 64], // Transport & eco badges
+  coffee: [55, 49], // Coffee shop badge, mug
+  finance: [59], // Financial planner badge
+  health: [53], // Health care badge
+  travel: [63, 35], // Travel badge, transport badge
+  gifts: [48, 49, 50, 51, 52], // Gift box, mug, crown, bow, pumpkin
+  entertainment: [20, 21, 22, 23, 24, 25, 26, 27, 34], // Tech + music (Netflix, Spotify, etc.)
+  utilities: [40, 69], // Solar panel, general
+  general: [42, 43, 44, 45, 46, 47], // Summer + spring characters (fun neutral options)
+}
+
+// Keywords mapped to sticker groups (case-insensitive matching)
+const PAYEE_KEYWORDS: Record<string, keyof typeof STICKER_GROUPS> = {
+  // Food & Dining
+  'h-e-b': 'food',
+  'heb': 'food',
+  'grocery': 'food',
+  'trader joe': 'food',
+  'whole foods': 'food',
+  'kroger': 'food',
+  'safeway': 'food',
+  'publix': 'food',
+  'albertsons': 'food',
+  'uber eats': 'food',
+  'doordash': 'food',
+  'grubhub': 'food',
+  'postmates': 'food',
+  'chipotle': 'food',
+  'mcdonald': 'food',
+  'wendy': 'food',
+  'burger': 'food',
+  'pizza': 'food',
+  'taco': 'food',
+  'sushi': 'food',
+  'restaurant': 'food',
+  'diner': 'food',
+  'cafe': 'food',
+  'bakery': 'food',
+
+  // Coffee
+  'starbucks': 'coffee',
+  'dunkin': 'coffee',
+  'coffee': 'coffee',
+  'peet': 'coffee',
+
+  // Shopping
+  'amazon': 'shopping',
+  'target': 'shopping',
+  'walmart': 'shopping',
+  'costco': 'shopping',
+  'best buy': 'shopping',
+  'ikea': 'shopping',
+  'home depot': 'shopping',
+  'lowes': 'shopping',
+  'etsy': 'shopping',
+  'ebay': 'shopping',
+
+  // Tech & Entertainment
+  'spotify': 'entertainment',
+  'netflix': 'entertainment',
+  'hulu': 'entertainment',
+  'disney': 'entertainment',
+  'hbo': 'entertainment',
+  'apple': 'entertainment',
+  'google': 'tech',
+  'microsoft': 'tech',
+  'steam': 'entertainment',
+  'playstation': 'entertainment',
+  'xbox': 'entertainment',
+  'nintendo': 'entertainment',
+
+  // Transport & Gas
+  'uber': 'transport',
+  'lyft': 'transport',
+  'shell': 'transport',
+  'exxon': 'transport',
+  'chevron': 'transport',
+  'bp': 'transport',
+  'gas': 'transport',
+  'fuel': 'transport',
+  'parking': 'transport',
+  'metro': 'transport',
+  'transit': 'transport',
+
+  // Sports & Fitness
+  'gym': 'sports',
+  'fitness': 'sports',
+  'planet fitness': 'sports',
+  'la fitness': 'sports',
+  'equinox': 'sports',
+  'peloton': 'sports',
+  'nike': 'sports',
+  'adidas': 'sports',
+
+  // Finance & Bills
+  'bank': 'finance',
+  'chase': 'finance',
+  'wells fargo': 'finance',
+  'capital one': 'finance',
+  'insurance': 'finance',
+  'geico': 'finance',
+  'progressive': 'finance',
+
+  // Health
+  'cvs': 'health',
+  'walgreens': 'health',
+  'pharmacy': 'health',
+  'hospital': 'health',
+  'doctor': 'health',
+  'clinic': 'health',
+  'dental': 'health',
+
+  // Utilities
+  'electric': 'utilities',
+  'water': 'utilities',
+  'power': 'utilities',
+  'utility': 'utilities',
+  'at&t': 'utilities',
+  'verizon': 'utilities',
+  't-mobile': 'utilities',
+  'internet': 'utilities',
+  'comcast': 'utilities',
+  'spectrum': 'utilities',
+
+  // Travel
+  'airline': 'travel',
+  'hotel': 'travel',
+  'airbnb': 'travel',
+  'expedia': 'travel',
+  'united': 'travel',
+  'delta': 'travel',
+  'american airlines': 'travel',
+  'southwest': 'travel',
+  'marriott': 'travel',
+  'hilton': 'travel',
+}
+
+// Category keywords mapped to sticker groups
+const CATEGORY_KEYWORDS: Record<string, keyof typeof STICKER_GROUPS> = {
+  'groceries': 'food',
+  'dining': 'food',
+  'restaurants': 'food',
+  'food': 'food',
+  'entertainment': 'entertainment',
+  'streaming': 'entertainment',
+  'subscriptions': 'entertainment',
+  'shopping': 'shopping',
+  'clothing': 'shopping',
+  'gas': 'transport',
+  'auto': 'transport',
+  'transportation': 'transport',
+  'gym': 'sports',
+  'fitness': 'sports',
+  'sports': 'sports',
+  'health': 'health',
+  'medical': 'health',
+  'pharmacy': 'health',
+  'utilities': 'utilities',
+  'bills': 'utilities',
+  'phone': 'utilities',
+  'internet': 'utilities',
+  'travel': 'travel',
+  'vacation': 'travel',
+  'hotels': 'travel',
+  'gifts': 'gifts',
+  'coffee': 'coffee',
+  'cafe': 'coffee',
+}
+
+// Get a semantically matched sticker for a payee and category
+export function getSmartSticker(payee: string, category: string, lastIndex: number = -1): Sticker {
+  const payeeLower = payee.toLowerCase()
+  const categoryLower = category.toLowerCase()
+
+  // Try to match payee first (more specific)
+  let matchedGroup: keyof typeof STICKER_GROUPS = 'general'
+
+  for (const [keyword, group] of Object.entries(PAYEE_KEYWORDS)) {
+    if (payeeLower.includes(keyword)) {
+      matchedGroup = group
+      break
+    }
+  }
+
+  // If no payee match, try category
+  if (matchedGroup === 'general') {
+    for (const [keyword, group] of Object.entries(CATEGORY_KEYWORDS)) {
+      if (categoryLower.includes(keyword)) {
+        matchedGroup = group
+        break
+      }
+    }
+  }
+
+  // Get the relevant sticker indices
+  const groupIndices = STICKER_GROUPS[matchedGroup]
+
+  // Filter to valid indices only (some groups reference indices that don't exist)
+  const validIndices = groupIndices.filter(i => i >= 0 && i < STICKERS.length)
+
+  // Pick a random sticker from the group, avoiding the last one if possible
+  let stickerIndex: number
+  let attempts = 0
+
+  do {
+    stickerIndex = validIndices[Math.floor(Math.random() * validIndices.length)]
+    attempts++
+  } while (
+    stickerIndex === lastIndex &&
+    attempts < 10 &&
+    validIndices.length > 1
+  )
+
+  // Also check color distance from last sticker
+  if (lastIndex >= 0 && attempts < 20) {
+    const lastColor = STICKERS[lastIndex].textColor
+    while (colorDistance(lastColor, STICKERS[stickerIndex].textColor) < 80 && attempts < 20) {
+      stickerIndex = validIndices[Math.floor(Math.random() * validIndices.length)]
+      attempts++
+    }
+  }
+
+  return STICKERS[stickerIndex]
+}
+
 // Get a random sticker that has sufficient color distance from the current one
 export function getRandomSticker(currentIndex: number, minColorDistance = 80): Sticker {
   const currentColor = STICKERS[currentIndex].textColor

@@ -29,23 +29,25 @@ export function TransactionContent({ card, onCategoryChange }: TransactionConten
 
   return (
     <div className="h-full flex flex-col relative">
-      {/* Sticker - maximized */}
-      <div className="absolute inset-0 bottom-[100px] md:bottom-[110px] flex items-center justify-center pointer-events-none">
+      {/* Sticker - floats to top of card, sized to not overlap text */}
+      <div className="absolute inset-x-0 top-0 bottom-[45%] flex items-start justify-center pointer-events-none">
         <div className="relative w-full h-full">
           <Image
             src={`/stickers/selected/${sticker.file}`}
             alt=""
             fill
-            className="object-contain"
+            className="object-contain object-top"
             priority
           />
         </div>
       </div>
 
-      {/* Transaction info - stacked centered */}
+      {/* Transaction info - gradient overlay at bottom for readability */}
       <div
-        className="absolute inset-x-0 bottom-0 px-4 pb-6 pt-6 text-center"
-        style={{ backgroundColor: sticker.bgColor }}
+        className="absolute inset-x-0 bottom-0 px-4 pb-6 pt-12 text-center"
+        style={{
+          background: `linear-gradient(to bottom, transparent 0%, ${sticker.bgColor}80 30%, ${sticker.bgColor} 50%)`,
+        }}
       >
         {/* Amount - top, readable */}
         <div

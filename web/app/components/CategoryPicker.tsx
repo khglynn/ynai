@@ -195,21 +195,20 @@ export function CategoryPicker({
                               )}
                             </div>
                             <div
-                              className="text-sm opacity-50"
+                              className="text-xs"
                               style={{ color: colors.textColor }}
                             >
                               {category.groupName}
                             </div>
                           </div>
-                          {/* Confidence indicator for top suggestions */}
-                          {category.confidence > 0.5 && !searchQuery && (
+                          {/* Confidence % - only on first 5 suggestions (persists when expanded) */}
+                          {category.confidence > 0.3 && !searchQuery && index < 5 && (
                             <div
-                              className="w-2 h-2 rounded-full"
-                              style={{
-                                backgroundColor: colors.textColor,
-                                opacity: category.confidence,
-                              }}
-                            />
+                              className="text-sm font-medium"
+                              style={{ color: colors.textColor }}
+                            >
+                              {Math.round(category.confidence * 100)}%
+                            </div>
                           )}
                         </div>
                       </motion.button>
