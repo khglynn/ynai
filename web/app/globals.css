@@ -23,3 +23,58 @@ body {
 .animate-card-in {
   animation: card-in 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
+
+/* Card depth shadows - layered for cartoon-y physicality */
+.card-shadow {
+  box-shadow:
+    /* Outer soft shadow for depth */
+    0 25px 50px -12px rgba(0, 0, 0, 0.25),
+    /* Mid shadow for lift */
+    0 12px 24px -8px rgba(0, 0, 0, 0.2),
+    /* Close shadow for edge definition */
+    0 4px 8px rgba(0, 0, 0, 0.1),
+    /* Inner highlight for paper edge */
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* Top card gets extra lift */
+.card-shadow-top {
+  box-shadow:
+    0 30px 60px -15px rgba(0, 0, 0, 0.3),
+    0 15px 30px -10px rgba(0, 0, 0, 0.2),
+    0 5px 10px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Subtle worn paper edge */
+.card-edge {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Stamp ink texture effect */
+.stamp-texture {
+  position: relative;
+}
+.stamp-texture::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='stamp'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' seed='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23stamp)'/%3E%3C/svg%3E");
+  opacity: 0.12;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* Touch handling for mobile swipes */
+.swipe-card {
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Vertical text for buttons (optional) */
+.writing-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}

@@ -41,6 +41,24 @@ What's next, in order. When done, move to `COMPLETED.md`.
 
 ---
 
+## 3.5. Wire Up Real YNAB Data
+
+**Important:** Pull ALL unapproved transactions, not just uncategorized.
+
+YNAB has two states we care about:
+- **Uncategorized** - No category assigned (yellow "needs category" badge)
+- **Unapproved** - Has a category (maybe YNAB's auto-guess) but user hasn't confirmed
+
+Our flow:
+1. Fetch all unapproved transactions (includes both types)
+2. For ones with YNAB guesses, compare against our AI suggestion
+3. If they match → high confidence, goes to bulk approval
+4. If they differ → lower confidence, goes to swipe stack for review
+
+The CLI currently only fetches `category_name === 'Uncategorized'` - need to also fetch by `approved: false` flag.
+
+---
+
 ## 4. Feedback & Learning
 
 - Update confidence scores after each decision
