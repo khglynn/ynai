@@ -6,6 +6,35 @@
 
 ## December 2024
 
+### Favicon + OG Image Assets
+**Completed:** Dec 27, 2024
+
+Created app icons and social share image for ynai.app.
+
+**Built:**
+- **Favicon** (`icon.png`, `apple-icon.png`): 1024x1024, happy basketball sticker on cream background
+- **OG Image** (`opengraph-image.png`): 1200x630, "AI for your YNAB" in Fredoka Bold
+  - Retro-teal text (#2D7A7A) on paper texture background (#ede9e0)
+  - 6 HUGE stickers (300-380px) bleeding off edges
+  - Uses only beige-background stickers that blend with canvas
+
+**Generator Script:**
+- `scripts/generate_og_image.py` - Python Pillow script with Inkscape SVG conversion
+- `scripts/Fredoka-Bold.ttf` - Cached Google Font for offline generation
+
+**Key patterns:**
+- Beige-background stickers blend seamlessly with canvas (no post-it look)
+- Sticker selection: eco badges, sports badges, ice cream badges
+- Paper texture: dual-layer grain (fine specks + horizontal fibers)
+
+**Files:**
+- `web/app/icon.png` - Favicon (Next.js auto-detects)
+- `web/app/apple-icon.png` - Apple touch icon
+- `web/app/opengraph-image.png` - Social share image
+- `scripts/generate_og_image.py` - OG image generator
+
+---
+
 ### Sticker Float-to-Top Layout
 **Completed:** Dec 27, 2024
 
